@@ -114,7 +114,7 @@
               }
               $("#txTable")
                 .append($("<tr>")
-                  .append($("<td>").text(tx.ret[0].code))
+                  .append($("<td>").text(tx.ret[0].contractRet))
                   .append($("<td>").text((callValue / scaleFactor).toString() + " TRX"))
                   .append($("<td>").text(decodedTx.name))
                   .append($("<td>").text(printArguments(funcAbi.inputs, decodedTx.args)))
