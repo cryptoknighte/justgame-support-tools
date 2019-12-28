@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>
-      JG - Debug Panel (by @Crypto McPump)
+      JG - Debug Panel
     </title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tronweb@2.8.1/dist/TronWeb.min.js"></script>
@@ -145,6 +145,9 @@
                 .append($("<a>").attr("href", "https://tronscan.org/#/block/" + curvyTxInfo.blockNumber).text(curvyTxInfo.blockNumber)
               );
               let logs = [];
+              if (!curvyTxInfo.log) {
+                continue;
+              }
               for (let log of curvyTxInfo.log) {
                 if (log.address !== curvyContract) {
                   continue;
