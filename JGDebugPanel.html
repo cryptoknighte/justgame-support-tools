@@ -90,6 +90,9 @@
         
         let name = ethers.utils.parseBytes32String(resolveToName[0]);
         
+        let balance = await tronweb.trx.getBalance(address);
+        $('#trxBalance').text(tronweb.fromSun(balance));
+        
         $("#boxCount").text(playerMetadataOf.ticketsOwned.div(scaleFactor).toString());
         $("#boxValue").text(dividendsOf[0].div(2).div(scaleFactor).toString());
         $("#boxValueEarlyOpen").text(dividendsOf[0].div(scaleFactor).toString());
@@ -191,6 +194,9 @@
         <label for="address">Address: </label><input type="text" id="address" size="35" /><input type="button" id="queryButton" value="Query" />
       </div>
       <table id="info">
+        <tr>
+           <td>TRX Balance</td><td id="trxBalance" align="right"></td>
+        </tr>
         <tr>
           <td>Box count</td><td id="boxCount" align="right"></td>
         </tr>
